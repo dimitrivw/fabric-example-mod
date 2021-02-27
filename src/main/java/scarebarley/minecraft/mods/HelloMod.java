@@ -1,14 +1,18 @@
 package scarebarley.minecraft.mods;
 
 import net.fabricmc.api.ModInitializer;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.*;
 
 public class HelloMod implements ModInitializer {
+
+	public static final Item EMERALD_SWORD = new Item(new Item.Settings().group(ItemGroup.COMBAT));
+
 	@Override
 	public void onInitialize() {
-		// This code runs as soon as Minecraft is in a mod-load-ready state.
-		// However, some things (like resources) may still be uninitialized.
-		// Proceed with mild caution.
 
-		System.out.println("Hello ScareBarley!");
+		Registry.register(Registry.ITEM, new Identifier("scarebarleysmod", "emerald_sword"), EMERALD_SWORD);
 	}
 }
